@@ -1,0 +1,30 @@
+# Budget Forecasting - Dependencies
+# Core Data Science
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Time Series Forecasting
+statsmodels>=0.14.0
+pmdarima>=2.0.0
+prophet>=1.1.4
+
+# Machine Learning & Metrics
+scikit-learn>=1.3.0
+
+# Database
+# sqlite3 is part of Python stdlib
+
+# Web Dashboard
+flask>=3.0.0
+
+# Testing
+pytest>=7.4.0
+
+# Utilities
+openpyxl>=3.1.0
