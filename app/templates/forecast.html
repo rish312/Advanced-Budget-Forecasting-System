@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Forecasts — Budget Forecasting{% endblock %}
+{% block page_title %}Revenue Forecasts{% endblock %}
+{% block subtitle %}Model comparison with confidence intervals{% endblock %}
+
+{% block content %}
+<div class="controls-bar">
+    <div class="control-group">
+        <label>Forecast Horizon</label>
+        <select id="horizon-select" class="select-control">
+            <option value="6">6 Months</option>
+            <option value="12" selected>12 Months</option>
+        </select>
+    </div>
+    <div class="control-group">
+        <label>Model</label>
+        <select id="model-select" class="select-control">
+            <option value="all" selected>All Models</option>
+            <option value="arima">ARIMA</option>
+            <option value="prophet">Prophet</option>
+            <option value="exp_smoothing">Exp. Smoothing</option>
+            <option value="ensemble">Ensemble</option>
+        </select>
+    </div>
+</div>
+
+<div class="chart-grid">
+    <div class="chart-card chart-full">
+        <div class="chart-header"><h3>Forecast Comparison</h3></div>
+        <div id="chart-forecast" class="chart-container chart-tall"></div>
+    </div>
+</div>
+
+<div class="chart-grid">
+    <div class="chart-card chart-full">
+        <div class="chart-header"><h3>Model Accuracy Comparison</h3></div>
+        <div id="chart-model-metrics" class="chart-container"></div>
+    </div>
+</div>
+
+<!-- Metrics Table -->
+<div class="table-card">
+    <div class="chart-header"><h3>Model Performance Metrics</h3></div>
+    <div id="metrics-table-container"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    loadForecastCharts();
+    document.getElementById('model-select').addEventListener('change', loadForecastCharts);
+});
+</script>
+{% endblock %}

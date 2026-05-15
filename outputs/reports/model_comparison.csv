@@ -1,0 +1,5 @@
+model,order,seasonal_order,mae,rmse,mape,r_squared,aic,seasonality,weights
+arima,"(0, 0, 0)","(0, 1, 0, 12)",17874.46,22377.84,2.76,0.9227,817.08,,
+prophet,,,143690.8,200456.11,22.1,-5.1997,,,
+exp_smoothing,,,17074.32,21704.03,2.61,0.9273,938.25,mul,
+ensemble,,,18831.6,25343.52,2.93,0.9009,,,"{'arima': np.float64(0.4582), 'prophet': np.float64(0.0572), 'exp_smoothing': np.float64(0.4846)}"

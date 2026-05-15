@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Budget Forecasting Dashboard — Real-time financial analytics, revenue prediction, and variance analysis.">
+    <title>{% block title %}Budget Forecasting Dashboard{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">📊</span>
+                <span class="logo-text">BudgetAI</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}" id="nav-dashboard">
+                <span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span>
+            </a></li>
+            <li><a href="/forecast" class="nav-link {% if request.path == '/forecast' %}active{% endif %}" id="nav-forecast">
+                <span class="nav-icon">📈</span><span class="nav-label">Forecasts</span>
+            </a></li>
+            <li><a href="/variance" class="nav-link {% if request.path == '/variance' %}active{% endif %}" id="nav-variance">
+                <span class="nav-icon">📉</span><span class="nav-label">Variance</span>
+            </a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <span class="version">v1.0.0</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>{% block page_title %}Dashboard{% endblock %}</h1>
+                <p class="subtitle">{% block subtitle %}Financial overview & key metrics{% endblock %}</p>
+            </div>
+            <div class="header-actions">
+                <span class="last-updated" id="last-updated"></span>
+            </div>
+        </header>
+        <div class="content-area">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

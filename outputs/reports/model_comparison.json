@@ -1,0 +1,50 @@
+[
+  {
+    "model":"arima",
+    "order":"(0, 0, 0)",
+    "seasonal_order":"(0, 1, 0, 12)",
+    "mae":17874.46,
+    "rmse":22377.84,
+    "mape":2.76,
+    "r_squared":0.9227,
+    "aic":817.08,
+    "seasonality":null,
+    "weights":null
+  },
+  {
+    "model":"prophet",
+    "order":null,
+    "seasonal_order":null,
+    "mae":143690.8,
+    "rmse":200456.11,
+    "mape":22.1,
+    "r_squared":-5.1997,
+    "aic":null,
+    "seasonality":null,
+    "weights":null
+  },
+  {
+    "model":"exp_smoothing",
+    "order":null,
+    "seasonal_order":null,
+    "mae":17074.32,
+    "rmse":21704.03,
+    "mape":2.61,
+    "r_squared":0.9273,
+    "aic":938.25,
+    "seasonality":"mul",
+    "weights":null
+  },
+  {
+    "model":"ensemble",
+    "order":null,
+    "seasonal_order":null,
+    "mae":18831.6,
+    "rmse":25343.52,
+    "mape":2.93,
+    "r_squared":0.9009,
+    "aic":null,
+    "seasonality":null,
+    "weights":"{'arima': np.float64(0.4582), 'prophet': np.float64(0.0572), 'exp_smoothing': np.float64(0.4846)}"
+  }
+]
